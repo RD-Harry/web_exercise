@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素隐藏</title>
+
+<style>
+    #red{
+        width: 300px;
+        height: 300px;
+        background-color: antiquewhite;
+        /* display: none;不显示 */
+        /* display: block; */
+    }
+    #img{
+        /* 原来大图片和小图片是一行显示，将父元素的宽度设置和大图片一致，小图片会被迫换行显示 */
+        width: 122px;
+        /* 父元素宽度和大图片宽度一样，这里为了将小图片靠右显示 */
+        text-align: right;
+        /* 将元素参照浏览器靠右固定显示 */
+        position: fixed;
+        right: 0px;
+        top: 200px;
+    }
+</style>
+</head>
+
+<body>
+    <div id="img">
+        <img id="big" src="img02-5.png" alt="">
+        <img id="small" src="img01-5.png" alt="">
+        <!-- <button id="small" style="display: none;"></button> -->
+    </div>
+    <script>
+        //点击关闭按钮关闭图片
+        var big = document.getElementById('big');
+        var small = document.getElementById('small');
+        var img = document.getElementById('img')
+        // small.style=onclick;
+        small.onclick=function ()
+        {
+            // small.style.display='none';
+            // big.style.display='none';
+            //大图片和小图片都在父元素div中，点击隐藏父元素就全都隐藏了
+            img.style.display='none';
+        }
+    </script>
+
+    <!-- 这种css的写法也是标签的额属性 -->
+    <div id = "red" style="display: block;"></div>
+    <script>
+        var red = document.getElementById("red");
+        // 对象.style就是上面的style
+        // 直接red.style就是css对象。里面有很多属性,
+        // 查看当前css元素的样式声明，CSS样式声明也是对象的形式，可以通过.再查看具体的样式
+         console.log(red.style);
+         console.log(red.style.display);
+        //  可以直接修改属性
+        red.style.display='none';//隐藏元素、显示元素就改成block
+        //  red.style.display='block';
+
+    </script>
+
+</body>
+</html>

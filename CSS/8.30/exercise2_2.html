@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+    <style>
+        .cart{
+            width: 170px;
+            height: 30px;
+            background-color: #aaaaaa;
+            border: solid 1px gainsboro;
+            position: relative;
+            /* 如果在父元素设置了行高，行高可以被继承 */
+
+        }
+        .text{
+            /* 字体默认是16像素的 */
+            font-size: 20px;
+            text-align: center;
+            /* 设置行高与父元素高度一致 保证垂直居中 */
+            line-height: 30px;
+        }
+        .gt{
+            /* 参照父元素调节子元素位置  绝对定位 */
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+
+        .count{
+            /* 子元素用决定定位，父元素要用相对定位给子元素作参照 */
+            position: absolute;
+            
+            width: 16px;
+            height: 16px;
+            background-color: #ff0000;
+            /* 字体颜色 */
+            color: white;
+            /* 默认字体是16像素可以调小一点 */
+            font-size: 12px;
+
+            /* 设置圆角 三个角圆形  最后一个角不变 */
+            border-radius: 50% 50% 50% 0;
+            
+            /* 调节位置偏右上方 */
+            /* 可以先设置为0然后再浏览器里面调节看合适大小 */
+            top: -5px;
+            right: 16px;
+            /* 设置水平居中 */
+            text-align: center;
+
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <div class="cart">
+            <div class="text">我的购物车:</div>
+            <span class="gt">></span>
+            <span class="count">1</span>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画显示隐藏</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+    <button id="btn1">隐藏</button>
+    <button id="btn2">上推</button>
+    <button id="btn3">淡隐</button>
+    <button id="btn4">自定义动画</button>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $("#btn1")[0].onclick=function()
+        // 注意[0],只有一个btn1的时候
+        //先通过jQuery找到jquery对象，然后通过索引变成js保存的对象
+        //再用原来的.onclick
+        {
+            if($('#btn1').html()=='隐藏')
+            
+            {
+                // 找到div，将div隐藏
+                $('div').hide(3000,
+                function()
+                {
+                    $('#btn1').html('显示')
+                })
+
+            }else{
+                $('div').show(3000,function(){
+                $('#btn1').html('隐藏')
+                //注意  目前动画还在执行的过程中 就能触发很多次按钮
+                // 动画还没有结束，就能执行很多次
+                // 考虑，再动画完全执行结束后，按钮再改变显示，保证有先后顺序
+
+                
+            })
+
+            }
+
+
+        }
+            
+        
+    </script>
+    <script>
+        $('#btn2')[0].onclick=function()
+        {
+            if($('#btn2').html()=='上推')
+            // 注意这里html是函数方式
+            {
+                $("div").slideUp(1000,function()
+                {
+                    $('#btn2').html('下拉')
+                })
+            }else
+            {
+                $('div').slideDown(1000,function()
+                {
+                    $('#btn2').html('上推')
+                })
+            }
+        }
+    </script>
+    <script>
+        // 给btn3添加淡隐淡现效果
+        $('#btn3')[0].onclick=function()
+        {
+            if($('#btn3').html()=='淡隐')
+            {
+                $('div').fadeOut(2000,function()
+                // fadeout逐渐消失
+                {
+                    $('#btn3').html('淡现')
+                })
+            }else{
+                $('div').fadeIn(2000,function()
+                // fadein逐渐出现
+                {
+                    $('#btn3').html('淡隐')
+                })
+            }
+        }
+
+
+
+
+    </script>
+
+    <script>
+        $('#btn4')[0].onclick=function()
+        {
+
+            // 注意animate语法
+            // animate(styles,speed,callback)
+            // styless是json格式
+            // callback可以嵌套多重格式
+            $('div').animate(
+            {
+                "border-radius":'50%',
+                'margin-left':'300px'
+            },3000,function()
+            {
+                $('div').animate(
+                    {
+                        'margin-left':'0px'
+                    },2000,function()
+                    {
+                        $('div').fadeOut(1000,function(){
+                            $('div').slideDown(1000)
+                        })
+                    })
+            })
+            
+        }
+    </script>
+
+
+</body>
+</html>

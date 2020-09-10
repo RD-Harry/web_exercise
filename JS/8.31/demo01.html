@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS使用</title>
+    <script>
+        
+    //js代码
+    console.log('写在head')</script>
+    <!-- 外部链接 -->
+    <script src="index.js"></script>
+</head>
+<body>
+    <!-- 元素绑定事件 -->
+    <!-- <button onclick="console.log('henllo hannah')">click me</button> -->
+
+    <!-- 写在 事件内部，事件需要点击触发执行，再整个网页加载完，再点击时，整个页面被重写，只有document.write的内容 -->
+    <button onclick="document.write('<h1>loving hannah<h1>')">click me</button>
+    <script>
+    console.log('写在body')
+    // 网页中能直接展示内容
+    document.write('<h1>hello hannah<h1>')
+
+   
+    </script>
+</body>
+</html>

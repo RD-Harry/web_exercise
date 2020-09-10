@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分离绑定事件</title>
+</head>
+<body>
+    <!-- 事件 -->
+    <!-- <button onclick="console.log('hello hannah')">click me</button> -->
+    <button id="btn"</button>click me
+
+    <!-- button再JS看来就是对象，对于document看来每一个写好的页面标签都是对象 -->
+    <script>
+        //1、通过id查找页面元素
+        var bbb = document.getElementById('btn')
+        console.log(bbb.id)//btn
+
+        //2、通过对象.属性的方式添加事件
+        //后续所有的对按钮的操作都可以通过变量实现
+        bbb.onclick=function ()//按钮被点击后要执行的功能
+        {console.log('hello hannah')}
+    </script>
+</body>
+</html>

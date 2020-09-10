@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串输入</title>
+</head>
+<body>
+    <input type="text" id="key">
+    <button id="btn1">解析邮箱地址</button>
+    <button id="btn2">获取身份证年月日</button>
+    <script>
+
+        //当按钮被点击时显示
+        //控制台显示用户名和服务商
+        //输入Hannah@163.com显示用户名：Hannah服务商163.com
+        var key1 = document.getElementById('key');
+        var btn1 = document.getElementById('btn1');
+        btn1.onclick=function(){
+            
+            console.log('用户名'+key1.value.split('@')[0]);//用户名hannah
+            console.log('服务商'+key1.value.split('@')[1]);//服务商163.com
+            
+        }
+         
+
+        var btn2=document.getElementById("btn2");
+        btn2.onclick=function(){
+            //从第六位开始向后检索8位，包括第六位
+            console.log('年'+key1.value.substr(6,4));
+            console.log('月'+key1.value.substr(10,2));
+            console.log('日'+key1.value.substr(12,2));
+
+        }
+    </script>
+
+</body>
+</html>

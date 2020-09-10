@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点击内容随机切换、自动随机切换</title>
+    <style>
+        #books{
+            width: 600px;
+            height: 200px;
+            border: 1px solid red;
+        }
+        /* #title{
+            float: left;
+            width: 200px;
+        } */
+
+        /* 浮动元素会脱离标准的文档流当
+        子元素float起来后，在页面中就不占位置了，图片就会上来，
+        因此要哦为title做样式设置，要让title能显示原本的高度，
+        子元素浮动之后，父元素高度为0问题 
+                    
+                1. 给固定高度
+                2. 
+            用overflow
+                3. 
+            用clear false 
+
+            */
+        .title{
+            overflow: hidden;
+            margin-top: 10px;
+        }
+       .title h3{
+           /* 左浮动靠左显示 */
+            float: left;
+            /* 清除默认边距 */
+            margin: 0;
+            margin-left: 5px;
+        }
+        .title span{
+            /* 右浮动靠右显示 */
+            float: right;
+            top: 0px;
+            margin-right: 5px;
+        }
+
+        .book{
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        /* book图片比较大，调节图片大小让图片能在一行显示 */
+        .book img{
+           /* 行内快元素，每次换行是默认有1px的间隔，图片与图片之间并不是说严丝合缝 */
+            float: left;
+           /* 图片脱离文档流后父元素也包不住了，因此再父元素中也设置一下overflow */
+            width: 150px;
+            margin: 0;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="books">
+        <div class="title">
+            <h3>相关书籍</h3>
+            <span id="change">换一换</span>
+        </div>
+       
+        <div class="book">
+            <img src="img/bk0-8.jpg" alt="">
+            <img src="img/bk1-8.jpg" alt="">
+            <img src="img/bk2-8.jpg" alt="">
+            <img src="img/bk3-8.jpg" alt="">
+        </div>
+    </div>
+<script>
+    var arr_img_url=[
+        "img/bk0-8.jpg","img/bk9-8.jpg",
+        "img/bk1-8.jpg","img/bk8-8.jpg",
+        "img/bk2-8.jpg","img/bk7-8.jpg",
+        "img/bk3-8.jpg","img/bk6-8.jpg",
+        "img/bk4-8.jpg","img/bk5-8.jpg",
+    ]
+    function createRdn(){
+        var arr = [];
+        
+        while(arr.length<4){
+            var i = Math.floor(Math.random()*10);
+            // 随机生成0-9之间数字
+            // 将数组转换成字符串
+            var str_arr = arr.toString();
+            //判断生成的数字中知否有一样的，没有返回-1
+            //从生成的字符串中找i
+            if(str_arr.indexOf(i)==-1){
+                arr.push(i);
+            }
+        }
+
+        return arr
+    }
+
+
+    var change = document.getElementById('change');
+    var imgs = document.getElementsByTagName('img');
+    change.onclick=function(){
+        var arr = createRdn();
+        // 将imgs里面的图片的地址，换成从地址库随机挑的图片的地址
+        //arr[]随机数组里面是不重复的随机数字
+        imgs[0].src= arr_img_url[arr[0]];
+        imgs[1].src= arr_img_url[arr[1]];
+        imgs[2].src= arr_img_url[arr[2]];
+        imgs[3].src= arr_img_url[arr[3]]
+    }
+    // setInterval(change.onclick,3000);
+    var timer = setInterval(change.onclick,3000);
+
+
+    //鼠标悬停停止自动切换，移走恢复正常
+
+    var books = document.getElementById('books');
+    books.onmousemove=function(){
+        clearInterval(timer);
+    }
+
+    books.onmouseout=function(){
+        timer=setInterval(change.onclick,3000);
+    }
+
+</script>
+</body>
+</html>

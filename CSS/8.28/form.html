@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单Form</title>
+</head>
+<body>
+    <!-- action指定提交地址，为空默认提交到当前页面上 -->
+    <form action="" method="get">
+        <!-- 表单控件 -->
+        <!-- 姓名：<input type="text" name="uname" value="请输入用户名"><br> -->
+        姓名：<input type="text" name="uname" placeholder="请输入用户名,不超过10个字符" maxlength="10"><br>
+        <!-- 不要忘了加空格，姓名不适合直接用value，删掉就没有了起不到提示的作用和 -->
+        密码：<input type="password" name="pwd" placeholder="请输入密码">
+        <!-- name value等是给服务器看的 -->
+        
+        <hr>
+        <!-- 复选框：<input type="checkbox" name="请选择"  value="A">A
+        复选框：<input type="checkbox" name="请选择"  value="B">B
+        提交按钮：<input type="submit" value="提交"><br> -->
+
+        <hr>
+        <!-- 单选按钮要实现单选功能必须加上name属性，要一样的属性,有value服务器才知道提交的什么 -->
+        <!-- 单选按钮：<input type="radio" name="answer" value="A">A
+        单选按钮：<input type="radio" name="answer" checked='checked' value="B">B -->
+        <!-- file:///home/tarena/the_third_stage/8.28/form.html?uname=&pwd=&answer=A -->
+        <!-- checked='checked'默认选中的效果,后面可不写 -->
+        
+
+        <hr>
+        下拉列表：<select>
+            <option value="">爱你一万年</option>
+            <option value="">爱你经得起考验</option>
+                </select><br>
+
+        <hr>
+        <!-- file:///home/tarena/the_third_stage/8.28/form.html?uname=&pwd=&pledge=pledge1 -->
+        <!-- select是下拉菜单，option是菜单的选项 -->
+        <!-- 这里要注意，name写在select里面，value写在option里面 -->
+        下拉列表：<select name="pledge" id="">
+            <option value="pledge1">我愿受500年风吹</option>
+            <option value="pledge2">500年雨打</option>
+            <option value="pledge3">500年日晒</option>
+        </select>
+        <hr>
+        <!-- 一行可以写30个字，可以写10行 -->
+        多行文本：<textarea name="" id="" cols="30" rows="10"></textarea>
+        <hr>
+        重置按钮：<input type="reset" value="重置"><br>
+        <hr>
+        普通按钮：<input type="button" value="按钮">
+                
+        <hr>
+        提交按钮：<input type="submit" value="提交"><br>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机数</title>
+</head>
+<body>
+    <script>
+        var m=Math.random()//默认是0-1之间的随机小数
+        console.log(m)
+        // 取0-3之间整数
+
+        // ceil是向上取整直接×3取不到0，
+        var rand = Math.ceil(Math.random()*3);//1\2\3
+        var rand = Math.ceil(Math.random()*4)-1//0\1\2\3
+        var rand = Math.ceil(Math.random()*4)
+        console.log(rand);
+
+        //向下取整
+        // var rand1 = Math.floor(Math.random()*3);//0\1\2
+        var rand1 = Math.floor(Math.random()*4);//0\1\2\3
+        console.log(rand1);
+
+        //四舍五入
+        var rand2 = Math.round(Math.random()*3);//0\1\2\3
+        console.log(rand2);
+
+        var m = Math.ceil(-0.9)
+        console.log(m)//-0
+
+        //0-n之间的整数
+        Math.floor(Math.random()*(n+1));
+        //1-n之间随机整数
+        Math.floor(Math.random()*n)+1;
+
+
+
+    </script>
+</body>
+</html>

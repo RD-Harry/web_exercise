@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 233px;
+            height: 82px;
+            border: solid 2px black;
+            position: relative;
+        }
+        input{
+            /* top: 5px;
+            bottom: 5px; */
+            /* top: 1px; */
+            position: absolute;
+            right: 20px;
+            float: right;
+            /* top: 1px; */
+        }
+        #btn{
+            position: absolute;
+            float: left;
+            left: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>hello hannah</h1>
+    <!-- 大括号里面的内容等待传参，若没有参数，界面不显示 -->
+    <h3>{{title}}</h3>
+    <div>{{author}}</div>
+    <p>{{content}}</p>
+
+    <div id="div1">
+        用户名：<input id="input1" type="用户名："><br>
+        密码：<input id="input2" type="密码："><br>
+        <!-- <input id = 'btn' type="button" value="登录"> -->
+        <button id="btn">登录</button>
+    </div>
+</body>
+</html>

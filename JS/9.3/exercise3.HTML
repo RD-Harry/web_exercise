@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        var start = new Date('1992-01-06 0:0:0');
+        var end = new Date();
+        //getTime()获得毫秒数
+        //var res = end.getTime() - start.getTime()//21037531051
+        res = end-start//21037531051
+        console.log(res)
+        leftTime = Math.floor(res/1000);//得到总秒数并向下取整去掉小数部分
+        console.log(leftTime);
+        
+        var days = Math.floor(leftTime/3600/24);
+        console.log(days)
+        var years = Math.floor((days/365));
+
+        var hours = Math.floor(leftTime/3600%24);
+        console.log(hours)
+        var minutes = Math.floor(leftTime/60%60);
+        console.log(minutes)
+        var seconds = Math.floor(leftTime%60);
+        console.log(seconds)
+
+        console.log(`从出生到现在${years}年${days}天${hours}小时${minutes}分${seconds}秒`)
+    </script>
+</body>
+</html>

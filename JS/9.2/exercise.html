@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本切换</title>
+    <style>
+        .focus{
+            text-decoration: none;
+            color: #ff0000;
+        }
+        #p1{
+            width: 300px;
+            /* color: red; */
+        }
+        
+    </style>
+</head>
+<body>
+    <a href="javascript:;">大</a>
+    <a href="javascript:;">中</a>
+    <a href="javascript:;" class="focus">小</a>
+    <!-- <p id="p1" style="font-size: 16px;"> -->
+    <!-- <p id="p1" style="color: red; font-size: 10px;"> -->
+    <p id="p1" >   
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque libero reiciendis porro omnis, odit in illo voluptates rem exercitationem harum ipsum, neque, commodi alias recusandae. Laudantium pariatur aliquid aliquam sit.</p>
+    <script>
+        //找到所有a标签的额元素 大中小
+        var anchors = document.getElementsByTagName('a');
+        for (var i= 0;i<anchors.length;i++){
+            //直接点超链接，里面没有值，默认返回当前页面
+            anchors[i].onclick=function(){
+                //如果没有this程序没有点击触发已经走到最后，
+                //console.log(anchors[i]);//undefined
+                
+                //console.log(anchors[i].innerText)
+                //写在函数里面的i函数里面并没有i，向外找，而i是全局变量，后面直接console.log(i)输出的是3，实际没有anchors[3]
+                //Cannot read property 'innerText' of undefined
+
+                //this指代当前调用页面的元素,谁在使用当前元素this指的就是谁
+                console.log(this.innerText)//大、中、小
+                changeFomtSize(this.innerText);//将超链接的文字当做关键字传给函数、调用函数功能
+                for(m=0;m<anchors.length;m++){
+                    anchors[m].removeAttribute('class');
+                }
+                
+                this.setAttribute('class','focus');
+                
+            }
+        }
+        //console.log(i);//3程序已经执行完
+        //做一个修改字体的函数
+        //根据关键字修改字体大小
+        function changeFomtSize(key){
+            //找到文字部分元素
+            var p = document.getElementById('p1');
+            switch(key){
+                case "大":p.setAttribute('style','font-size:36px;color:red');
+                break;
+                case "中":p.setAttribute('style','font-size :24px');
+                break;
+                case "小":p.setAttribute('style','font-size :18px');
+                break;
+            }
+
+        }
+    </script>
+</body>
+</html>

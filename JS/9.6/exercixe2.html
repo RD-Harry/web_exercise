@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态时间显示</title>
+    <style>
+        div{
+            width: 276px;
+            height: 60px;
+            padding: 5px 2px;
+            background-color: rgb(155, 189, 178);
+            /* 加边框 ,加实线*/
+            border: 3px solid rgb(255, 0, 0);
+                /* x y 模糊程度 扩散程度（可省略） */
+            box-shadow:12px 9px 7px -7px rgb(104, 100, 100);
+            font-size: 50px;
+            /* font-weight: 30px; */
+            
+            text-align: center;
+            border-radius: 20px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="clocck">
+        <span id="hh">00</span>
+        <span class="tip">:</span>
+        <span id="mm">00</span>
+        <span class="tip">:</span>
+        <span id="ss">00</span>
+    </div>
+    <script>
+        var hh = document.getElementById('hh');
+        var mm = document.getElementById('mm');
+        var ss = document.getElementById('ss');
+        // now = new Date()
+        function showTime(){
+            //获取当前时间对象
+            var now = new Date()
+            //获取当前时分秒并再网页显示
+            hh.innerHTML=addZero(now.getHours());
+            mm.innerHTML=addZero(now.getMinutes());
+            ss.innerHTML=addZero(now.getSeconds());
+
+        }
+        // 周期 每隔一秒钟获取当前时间
+       setInterval(showTime,1000);
+
+       //做一个函数，原来显示是个位数时只有一位，判断补0
+      function addZero(num){
+          return num>=10? num:'0'+num;
+      }
+        
+        
+        
+
+    </script>
+</body>
+</html>

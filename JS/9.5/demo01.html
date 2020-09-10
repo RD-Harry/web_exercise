@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            position:fixed;
+            right: -400px;
+            /* 让div再屏幕外面造成一种隐藏效果 */
+            bottom: 0px;
+            transition: all 3s;
+            /* 过渡时间3秒 */
+        }
+
+        .show{
+            right: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="el"></div>
+    <button id="btn">stop</button>
+    <script>
+
+
+        setTimeout(
+            //函数值调用一次，用匿名函数，给div加上一个show属性将藏在页面外面的div转到页面中，
+            // 因为过度比较突兀，用transition控制过度时间
+            function(){
+            var el = document.getElementById('el');
+            
+            el.setAttribute('class','show');
+        },3000)
+    
+        //再浏览器断跳出弹框和alert不同的是这有确定和取消按钮
+        var res=confirm('确定要离开吗？')
+        console.log(res);//bollean
+        
+
+        function fun(){
+            console.log('hello hannah');
+        }
+        //注意这里fun不要加括号定时器会自动调用函数不需要手动调用，fun是函数体
+         var timerId = setInterval(fun,1000)//1000毫秒，每隔一秒钟输出一次
+
+        var btn = document.getElementById('btn');
+        btn.onclick=function(){
+            clearInterval(timerId)
+        }
+
+
+
+
+
+        //  clearInterval(timerId);
+   </script>
+</body>
+</html>

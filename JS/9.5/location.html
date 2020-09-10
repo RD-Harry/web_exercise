@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello hannah</h1>
+    <h1>5秒后跳转到tmooc</h1>
+    <script>
+        //设置一次性定时器，location可以修改地址
+        setTimeout(function(){
+            location.href='http://www.tmooc.cn'
+        },5000)
+
+
+        //data.html界面直接跳转到此界面并且在地址栏中传递了信息
+        //file:///home/tarena/the_third_stage/JS/9.5/location.html?uname=hannah&psd=123456
+        console.log(location.href);
+        //location.href是字符串
+        var addr =location.href.split('?');//通过？分割就得到后
+        console.log(addr);//["file:///home/tarena/the_third_stage/JS/9.5/location.html", "uname=hannah&psd=123456"]
+        console.log(addr[1]);//uname=hannah&psd=123456
+    </script>
+</body>
+</html>

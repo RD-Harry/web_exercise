@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉框</title>
+</head>
+<body>
+    <select name="" id="city">
+            <!-- <option value="0">请选择</option>
+        <option value="beijing">北京</option>
+        <option value="shanghai">上海</option> -->
+    </select>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        var arr=[
+            {
+                'name':'请选择',
+                'value':0
+
+            },
+            {
+                'name':'北京',
+                'value':'beijing'
+            },
+            {
+                'name':'上海',
+                'value':'shanghai'
+            }
+        ]
+        $.each(arr,function(n,v){
+            //先遍历得到arr里面所有的元素
+            console.log(v)
+            // {name: "请选择", value: "0"}
+            // {name: "北京", value: "beijing"}
+            // {name: "上海", value: "shanghai"}
+
+            // 将遍历得到的一个非元素添加到option中，并将option追加到select里面
+            $('#city').append(`<option value="${v.value}">${v.name}</option>`)
+            
+        })
+        
+    </script>
+
+
+</body>
+</html>

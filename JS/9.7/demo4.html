@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遍历</title>
+</head>
+<body>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+    </ul>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $('li').each(function(i,ele){
+            //console.log(i,ele)
+            //打印的是索引以及对应的 标签 
+
+            // console.log(ele.innerHTML)
+            // 打印的是标签里面的值，直接利用的是JS代码
+
+
+            //将ele放在$()里相当于将JS对象转换成jQuery对象
+            //然后通过jQuery对象的方法打印
+            // 注意这里是html() 
+            // js------>jquery
+            console.log($(ele).html())
+        })
+
+        var arr = [1,2,3,4,5]
+        $.each( arr,function(index1,value1){
+            // console.log(index1,value1)
+           
+            console.log(value1)
+        })
+
+
+       
+    </script>
+</body>
+</html>

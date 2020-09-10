@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul,li,h1{
+            /* 清除列表的默认样式 */
+            margin: 0;
+            padding: 0px;
+            list-style: none;
+            
+        }
+        div{
+            width: 300px;
+            height: 150px;
+            padding: 10px;/*设置内边距*/
+            background-color: rgb(206, 201, 201);
+            border: 1px solid #666;
+        }
+        a{
+            transition: none;
+            text-decoration: none;
+            /* 去掉超链接下划线 */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>四大名著</h1>
+        <ul>
+            <!-- http://127.0.0.1:5000/list/4 -->
+            <li>{{cid}}.
+                <a href="http://127.0.0.1:5000/list/{{cid}}">西游记</a>
+            </li>
+            <li>{{cid+1}}.
+                <a href="http://127.0.0.1:5000/list/{{cid+1}}">水浒传</a>
+            </li>
+            <li>{{cid+2}}.
+                <a href="http://127.0.0.1:5000/list/{{cid+2}}">红楼梦</a>
+            </li>
+            <li>{{cid+3}}.
+                <a href="http://127.0.0.1:5000/list/{{cid+3}}">三国演义</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

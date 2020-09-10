@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            width: 300px;
+            /* background-color: aquamarine; */
+        }
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="key">
+    <button id="search">查找</button>
+    <p id="text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam nam quaerat, facere adipisci nulla atque consectetur veritatis nesciunt mollitia totam molestiae, modi eaque eos suscipit nihil in! Nihil, magni esse.
+    </p>
+    <script>
+        
+        var search =document.getElementById('search');
+       
+        var text= document.getElementById('text');
+
+        var key = document.getElementById('key');
+
+        search.onclick=function(){
+            // var reg = /sit/ig;
+            //确定正则表达式，key.value用户输入什么就作为正则
+            //加上修饰符忽略大小写，全局
+            var reg = new RegExp(key.value,'ig');
+            //再大段文字中判断是否存在要查找的内容
+            if (reg.test(text.innerText)){
+                // alert('检测到结果')
+                // text.innerText.replace(reg,`<span>${reg}</span>`)
+                text.innerText.replace(reg,`<span>${key.value}</span>`)
+                
+                //注意是``，替换的是带有HTML格式的内容，要用能识别HTML标签的innerHTML不是普通的文本
+                var newText=text.innerText.replace(reg,`<span>${key.value}</span>`)
+                //要将修改后的text替换p标签里面原来的
+                text.innerHTML=newText
+            }else{
+                alert('未检测到结果')
+            }
+
+        }
+        
+        
+    </script>
+</body>
+</html>

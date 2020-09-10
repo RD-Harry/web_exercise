@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取列表元素</title>
+</head>
+<body>
+    <ul>
+        <li class="item">item1</li>
+        <li>item2</li>
+        <li class="item">item3</li>
+    </ul>
+    <input type="text" id="username" value="loving hannah">
+    <script>
+        var uname = document.getElementById('username');
+        console.log(uname.value)
+
+        //通过标签遍历
+        var items = document.getElementsByTagName('li');
+        console.log(items[0].innerText)//item1   获取标签内部文本内容
+        items[0].innerText='hello hananh';//修改当前页面元素的内容，只能对文本做操作
+
+        console.log(items[2].innerHTML)//获取当前标签内容 但功能更全
+        items[2].innerHTML='<h1>hello harry</h1>';//能识别HTML的格式
+
+
+
+
+        console.log(items)//直接获取的是一个集合可以点开
+        console.log(items[0]);//分别获取元素
+        console.log(items[1]);
+        console.log(items[2]);
+        // for(var i =0;i<3;i++)
+        //注意这里的lengh是items的
+        for(var i=0 ;i<items.length;i++)
+
+        {
+            console.log(items[i])
+        }
+
+        var cItem = document.getElementsByClassName('item');
+        console.log(cItem);//是一个集合
+        for(var m = 0;m<cItem.length;m++){
+            console.log(cItem[m]);
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表制作标题</title>
+    <style>
+        ul,li{
+            /* 内边距和外边距设置为0 */
+            padding: 0;
+            margin: 0;
+            /* 清除列表样式，原来列表有小圆点 */
+            list-style: none;
+            float: left;
+        }
+        /* 单独设置第一项 将第一项与其他项对齐 */
+        .first{
+            color: gray;
+            margin: 10px 0px;
+        }
+        .item{
+            /* 上下外边距10px   左右外边距20px */
+            margin: 10px 20px;
+            /* 上下内边距0 左右内边距10px */
+            padding: 0px 10px;
+        }
+        /* 自定义一个类，要用就在下面调 */
+        .active{
+            background-color: red;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="first">难度：</li>
+        <li class="item">全部</li>
+        <li class="item">初级</li>
+        <!-- 添加一个active 实现单独的功能 -->
+        <li class="item active">中级</li>
+        <li class="item">高级</li>
+    </ul>
+</body>
+</html>

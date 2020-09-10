@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 省份下拉菜单 -->
+    <select name="" id="prov"></select>
+        <!-- <option value=""></option> -->
+    <select name="" id="city"></select>
+    <select name="" id="area"></select>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/data.js"></script>
+    <script>
+        console.log(data)
+//(4) [{…}, {…}, {…}, {…}]
+// 0: {provname: "浙江省", provId: 1, citys: Array(4)}
+// 1: {provname: "山东省", provId: 2, citys: Array(4)}
+// 2: {provname: "广东省", provId: 3, citys: Array(4)}
+// 3: {provname: "甘肃省", provId: 4, citys: Array(4)}
+// length: 4
+// __proto__: Array(0) 
+
+        // 用.append添加的方式也能添加
+        $("#prov").html(' <option value="0">请选择</option>')
+        $("#city").html(' <option value="0">请选择</option>')
+        $("#area").html(' <option value="0">请选择</option>')
+        
+        // ①加载省份
+        $.each(data,function(i,o)//要传入的数据
+        {
+            // 向省份中添加内容注意是反引号
+            // 通过遍历的方式获取内容
+            // 第一次$.each能获取到data数据，每一个对象
+            // 要将provname展现给用户看，将provId作为value的值去显示
+
+            $('#prov').append(`<option value="${o.provId}">${o.provname}</option>`)
+        })
+       
+        // ②通过省份加载城市
+        // 在每一个省份中保存着属性cities，城市信息，遍历城市信息获取城市结果
+        // 在省份的值被更改后执行
+        $('#prov').on('change',function ()
+         {
+            // i是省份对象的索引
+            // o是省份对象的值
+            
+            // 省份变成请选择的时候，城市和地区没有变化
+            // 要再省份变成请选择的时候清空，城市和地区，请选择的值为0
+            // 
+            $("#prov").on('change',function()
+            {
+                $.each(data,function (i,o)
+                 {
+                    //  两次判断实现功能，省份下拉菜单为请选择，城市和地区也变成请选择
+                    // 但是省份不变的时候，改变城市为请选择，地区不变
+                    if($("#prov").val()==0)
+                    // 如果省份下拉菜单的值为0，将城市的下拉菜单初始化
+                    {
+                        $("#city").html(' <option value="0">请选择</option>') 
+                    } 
+                    if($("#city").val()==0)
+                    {
+                        $("#area").html(' <option value="0">请选择</option>')
+                    }   
+                })
+            })
+
+
+
+
+
+            $.each(data,function (i,o)
+            {
+                if(o.provId==$('#prov').val())
+                {
+                    // 遍历省份中的城市
+                    $("#city").html(' <option value="0">请选择</option>')
+                    // 后面追加内容的时候会一直追加，要再追加之前初始化页面
+                    
+                    $.each(o.citys,function (i,o2) 
+                    
+                    {
+                        // 注意索引值i没有用到，没有重命名
+                        // o2是data表中，省份表中的城市的值
+                        // append会向页面一直追加数据，换了省份城市要跟着换，
+                        // 要先初始化城市菜单然后追加内容
+                        $('#city').append(`<option value="${o2.cityId}">${o2.cityname}</option>`)
+                    })
+
+                }
+
+            })
+        })
+
+
+        // ③通过城市加载地区，城市菜单更改的时候触发事件
+        $('#city').on('change',function(i,o)
+        {
+            // 省份不变，再改变城市为请选择时，地区未变，需要再做判断
+            // 注意要写在each外边
+            if($('#city').val()==0)
+            {
+                $("#area").html(' <option value="0">请选择</option>')
+            }
+
+            // i为索引
+            // o3为城市下地区的值
+            // 思路：1.先通过省份判断是不是当前的省份
+            //      2.通过通过省份下的城市判断是不是当前的城市，确定是当前的城市，再遍历下面的地区
+            //      3.遍历地区的列表获取地区的内容，添加到下拉菜单
+            // 总结：要经过3次遍历
+            $.each(data,function(i,o)
+            {
+                if(o.provId==$('#prov').val())
+                {
+                    // 如果遍历到的provID就是省份下拉菜单的值，说明找到的就是当前的省份
+                    // 遍历省份代表的城市
+                    $.each(o.citys,function(i,o2)
+                    {
+                        //判断一下城市是不是选则的城市
+                        if(o2.cityId==$("#city").val())
+                        {   
+                            $("#area").html(' <option value="0">请选择</option>')
+                            // 在遍历城市之前将area地区列表重置
+
+                            $.each(o2.areas,function(i,o3)
+                            // 遍历当前城市下的地区
+                            {
+                                
+                                // 找地区的下拉菜单，为地区菜单添加option
+                                // 再循环之前也要重置地区
+                                $("#area").append(`<option value="${o3.areaId}">${o3.areaname}</option>`)
+                            })
+                        } 
+
+                    })
+                }
+            })
+
+        })
+
+
+
+    </script>
+</body>
+</html>

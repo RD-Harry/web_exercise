@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判断数字</title>
+</head>
+<body>
+    <button id="btn">开始检测</button>
+    <script>
+        // var num = prompt('请输入：');
+        // 只要是涉及到用户输入的都是字符串
+        // typeof(num)==Number?console.log('数字'):console.log('非数字');//结果都是飞数字，都是字符串
+        // console.log(typeof(num))//string
+
+        //isNaN()
+        //能转数字的就是false，不能转数字的就是true
+        // var res = isNaN(num)
+        // console.log(res)
+        // isNaN(num)?console.log('非数字'):console.log('数字')
+
+        var bbb=document.getElementById('btn');
+        bbb.onclick=function (){
+        var num = prompt('请输入：');
+        isNaN(num)?console.log('非数字'):console.log('数字')  ;}
+            
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+/* 外部样式表文件 ，head的style标签里面的文件直接复制过来*/
+h1{
+    color: red;
+    background-color: rgb(33, 230, 33);
+    font-size: 40px;
+    text-align: center;
+}

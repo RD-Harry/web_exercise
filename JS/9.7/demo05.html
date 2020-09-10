@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档加载</title>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        // 网页加载完成后执行函数
+        // window.onload=function()
+        // {
+        //     $('div').html('hello hannah')
+        // }
+
+
+        // 在上面或者外部要写js代码时要用$(function(){})
+        // 尤其是外部文件一定要加   不清楚加载的文件放在哪里
+        $(function()
+        {
+            // $('div').html('loving hannah')
+            // $('div').on('click',function ()
+
+            //链式写法，一个选择器能做的事情尽量就不要写多个
+                     $('div').html('loving hannah').on('click',function ()
+            
+
+             {
+                alert('forver')
+            })
+        })
+    </script>
+</head>
+<body>
+    <div></div>
+    <script>
+        $(function(){
+            $('div').css('color','red')
+        })
+    </script>
+</body>
+</html>

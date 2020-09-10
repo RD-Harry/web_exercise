@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+       .red{
+           width: 300px;
+           height: 300px;
+           background-color: red;
+           
+       }
+   </style>
+</head>
+<body>
+    <div></div>
+    <button>click me</button>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        var h1 =  $('<h1>JQ生成的元素</h1>').attr('id','title').css('color','yellow');
+        // 
+
+        //   $('body').append(h1)//在body元素末尾添加
+        // $('body').prepend(h1)//在body元素开始添加
+
+        //$('div').after(h1)//在div的后面添加，兄弟元素
+        $('div').before(h1)  
+        $('div').remove()//移除元素，找到div元素移除     
+
+        //jQ----js
+        //通过jQ找到所有button标签，第一项
+        $('button')[0].onclick=function(){
+            // $('div').addClass('red');// 给div增加red类属性
+            $('div').toggleClass('red');
+            //切换属性，如果原来有red属性就移除，没有就添加
+            
+        }
+
+
+        // var word = document.getElementsByTagName('div');
+        // // 原来这种通过标签的做法得到的是一个集合
+        // word[0].innerText = 'hello'
+        // console.log(word)
+        // $("div").html('hello hannah');
+        // $('div').text('loving you');
+        // $('div').val('喜欢');//无显示，页面是空
+
+        //联式操作，直接添加属性
+        // $('div').html('loving hannah').css('color','red');
+        $('div').html('loving hannah').css({
+            'color':'red',
+            'font-size':'200px',
+            
+
+        })
+
+
+
+        $('div').attr('id','div1');//为div设置id属性，id名为div1
+        //attr比较灵活，里面只有一个值时，是获取属性
+        //两个值，第一个值是获取的属性，第二个是要设置的值
+        console.log($('div').attr('id'));
+
+
+        $('div').removeAttr('id');//移除属性
+    </script>
+</body>
+</html>

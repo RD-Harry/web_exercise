@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录界面</title>
+    <style>
+        /* 为form表单加样式 */
+        form{
+            width: 233px;
+            height: 88px;
+            background-color: burlywood;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <!-- 用 POST 用form ,表单做数据提交-->
+    <!-- action 提交数据的地址 关键数据 指明用POST提交数据 -->
+    <!-- <form action=""> -->
+        <!-- 目前index、hello和show再同一级目录下，直接调用就可以 -->
+        <!-- 在建立form表单时，先配好服务器，然后再在这里调用 -->
+    <form action="/show" method="POST">    
+        <div>
+            用户名：<input type="text" name='uname'>
+            <!-- text 文本框，要带数据提交 要给name -->
+        </div>
+        <div>
+            密码：<input type="password" name = 'upwd' >
+        </div>
+        <input type="submit" value="登录">
+    </form>
+    
+</body>
+</html>

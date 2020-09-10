@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录框界面</title>
+    <style>
+        body,html{
+            height: 100%;
+            /* 谷歌浏览器博人body有8px的边框，去掉边框 */
+            margin: 0;
+        }
+        #bg{
+            width: 100%;
+            /* 没有高度，需要给父元素设置高度 */
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            display: none;
+            /* 调试时发现。界面显示时按钮被挤下去，要将按钮遮住，将此元素调成固定 */
+            position: fixed;
+        }
+        #box{
+            /* 设置框的宽和高 */
+            width: 300px;
+            height: 400px;
+            background-color: white;
+            /* 设置圆角 */
+            border-radius: 10px;
+            /* 将边框固定显示 */
+            position: fixed;
+            /* 调节边框位置 */
+            top: 50%;
+            left: 50%;
+            /* 调节X的大小 */
+            margin-left: -150px;
+            margin-top: -200px;
+            font-size: 30px;
+            display: none;
+        }       
+    </style>
+</head>
+<body>
+    <!-- 半透明背景 -->
+    <div id="bg"></div>
+    <!-- 弹框（模态框） -->
+    <div id="box">
+        <span id="close">X</span>
+    </div>
+
+    <button id="open">显示弹框</button>
+    <script>
+        var open1 = document.getElementById('open');
+        var bg=document.getElementById('bg');
+        var box=document.getElementById('box');
+        open1.onclick=function()
+        {
+            
+            bg.style.display='block';
+            box.style.display='block';
+        }
+        var close1 = document.getElementById('close');
+        close1.onclick = function(){
+            bg.style.display='none';
+            box.style.display='none';
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" cellspacing='0'>
+
+    <!-- <table border="1" >     -->
+        <!-- border边框的意思,是给每个单元格加边框，但是默认的额单元格之间是有距离的，直接显示是2条线 -->
+        <!-- cellspacing将单元格之间的距离设置为0，这样看到的线就是一条线了 -->
+        <tr>
+            <!-- 跨列合并， -->
+            <td colspan="3">11</td>
+            <!-- <td>12</td>
+            <td>13</td> -->
+        </tr>
+        <tr>
+            <!-- 跨行合并 -->
+            <td rowspan='3'>21</td>
+            <td>22</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <!-- <td>31</td> -->
+            <td>32</td>
+            <td>33</td>
+        </tr>
+        <tr>
+            <!-- <td>41</td> -->
+            <td>42</td>
+            <td>43</td>
+        </tr>
+    </table>
+</body>
+</html>

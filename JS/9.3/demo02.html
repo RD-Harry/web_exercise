@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串</title>
+</head>
+<body>
+    <script>
+        var str = 'harry Hannah';
+        //起始位置索引和字符串长度
+        console.log(str.substr(6,6));//Hannah
+        //起始位置索引和结束位置索引
+        console.log(str.substring(6,8));//Ha
+
+        //空格切分为两个元素的数组
+        console.log(str.split(' '));//(2) ["harry", "Hannah"]
+        //没有/但是输出的是一个数组，整个字符串放在数组中返回
+        //字符串转数组的方式string--->array
+        console.log(str.split('/'));//["harry Hannah"]
+
+
+        // var res = str.match('Ha');
+        // //用字符串做参数有局限性，写什么就找什么，区分大小写
+        // //如果有多个内容，只能找到第一个
+        // //["Ha", index: 6, input: "harry Hannah", groups: undefined]
+        // console.log(res);
+
+        var str2 = 'hannah harry';
+        var reg = /bb/ig;
+        var res = str2.match(reg)
+        console.log(res);//(2) ["ha", "ha"]
+
+        // // //replace并不会影响原来的字符串，返回替换后的内容
+        // // //需要一个新的变量才能看到替换后的结果
+        // var newStr =str2.replace(reg,'lu');
+        // console.log(newStr)//lunnah lurry
+
+
+
+        // //ig为修饰符，g全局查找,i忽略大小写
+        // var reg = /ha/ig;
+        // console.log(reg.test(str));//true
+        // var regx = new RegExp('hah','ig');
+        // console.log(regx.test(str));//false
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // var str1 ='hello hannah';
+        // var k = str1.indexOf('hannah');
+        // console.log(k);//6索引值为6的位置就是要找的内容
+
+        // var q = str1.indexOf('a');
+        // console.log(q);//7不会找全部的内容
+        // //可以通过第二个参数指定起始索引
+        // var q = str1.indexOf('l',10);
+        // console.log(q);//-1查找的内容不存在
+
+        // console.log(str1.charAt(8));//n
+        // console.log(str1.charCodeAt(8));//110
+
+        // var str2 = new String ('hello');
+        
+        // console.log(str1);
+        // console.log(str2);
+
+        // for(i=0;i<str1.length;i++){
+        //     console.log(str1[i]);
+        // }
+
+        // for(var n in str2){
+        //     console.log(str1[n]);
+        // }
+        // //全部转换成大写字母，不影响原来的字符串
+        // var up = str1.toUpperCase();
+        // console.log(up);//HELLO HANNAH
+        // console.log(str1);
+    </script>
+</body>
+</html>

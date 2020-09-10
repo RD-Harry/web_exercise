@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="face.jpg" alt="">
+    <img src="" alt="">
+    <button id="btn">转变</button>
+    <script>
+        //获取页面元素
+        var btn = document.getElementById('btn');
+        //一共是两张图片，通过img属性一获取两张图片
+        var imgs = document.getElementsByTagName('img');
+
+        //按钮点击是将一张图片的地址给另外一张图片
+
+        btn.onclick=function(){
+            //一共两张图片，获取第一张图片的地址，src作为图片的属性
+            var url =imgs[0].getAttribute('src');
+            //将获取到的属性传给第二张图片
+            imgs[1].setAttribute('src',url);
+            // imgs[0].removeAttribute('src');
+        }
+            //getAttribute()    对象.属性
+            //setAttrinute()    对象.属性 = 值
+            //removeAttribute() 对象.属性 = ""
+    </script>    
+</body>
+</html>

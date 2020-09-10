@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>演示请求</title>
+</head>
+<body>
+    <!-- 提交前的路径 -->
+    <!-- file:///home/tarena/the_third_stage/ajax/9.10/demo1.html -->
+
+    <!-- 提交后的路径 -->
+    <!-- file:///home/tarena/the_third_stage/ajax/9.10/demo1.html?uname=hannah&pwd=123456 -->
+    <!-- 默认用get方式提交的数据 -->
+    <!-- <form action="" > -->
+    <form action="" method="post">
+
+        <!-- 这里不区分大小写 -->
+        <!-- action就是指定的要接收的服务器端的地址 -->
+        <!-- 通常是在服务器端写好的功能，地址传过来直接使用 -->
+        <!-- 空着默认提交到本地页面 -->
+        <p>
+            姓名：<input type="text" name="uname">
+        </p>
+        <p>
+            密码：<input type="password" name="pwd">
+        </p>
+        <input type="submit" >
+    </form>
+</body>
+</html>

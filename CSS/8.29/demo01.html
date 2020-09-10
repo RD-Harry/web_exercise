@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 内嵌样式 -->
+    <!-- 字体颜色、背景色、字体大小、居中 -->
+    <!-- <style>
+        /* 所有的h1标签都有这样的样式 */
+        h1{
+            color: red;
+            background-color: rgb(33, 230, 33);
+            font-size: 40px;
+            text-align: center;
+            
+        }
+        
+    </style> -->
+    <!-- 外链的样式 -->
+    <!-- <link rel="stylesheet" href="demo1.css"> -->
+    <!--rel:当前文档与被链接文档的关系
+        stylesheet:样式表格关系
+        herf：被链接文档的路径 
+        写具体的路径
+     -->
+     <style>
+        #last_one{color: hotpink;
+                  font-size: 40px;
+                }
+        .yellow{color: khaki;background-color: lightcoral;font-size: 10px;}
+        p.yellow{font-size: 20px;}
+        .center{
+            text-align: center;
+                }
+     </style>
+</head>
+<!-- <body bgcolor="yellow"> -->
+<body>   
+    <!-- 这样的背景颜色设置只对body 有效，h1就无效 -->
+    <h1 id="last_one" class="center">loving you</h1>
+
+    <h1 class="yellow center">hello hannah</h1>
+
+    <h1 class="yellow">hello harry</h1>
+
+    <p class="yellow">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae sequi itaque atque incidunt tempora maxime nemo numquam, dolorum repellendus commodi? Similique repellendus soluta nesciunt vel accusantium! Doloribus temporibus quod soluta.</p>
+
+
+
+</body>
+</html>

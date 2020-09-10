@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="key">
+    <div id="nomal"></div>
+    <div id="bold" style="font-weight: bold;"></div>
+
+    <script>
+
+        //1。查找元素
+        var key = document.getElementById('key');
+        var nomal = document.getElementById('nomal');
+        var bold =document.getElementById('bold');
+        //绑定事件
+    // 文本框发生改变时触发
+        key.onchange = function(){
+            console.log(key.value)
+            nomal.innerText = key.value
+            bold.innerText = key.value
+        }
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>

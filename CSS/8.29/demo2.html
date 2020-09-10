@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 后代选择器 i是div的后代*/
+        div i{
+            color: rgb(199, 218, 200);
+        }
+        /* 子代选择器，li是ul的子代 */
+        ul>li{text-align: center;}
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li>oneday</li>
+        <li>oneyear</li>
+        <li>lastone</li>
+    </ul>
+    <div>祖先标签
+        <p>父标签
+            <i>
+                子标签
+            </i>
+        </p>
+    </div>
+    <!-- div#titie+tab    快速创建id选择器-->
+    <div id="title"></div>
+    <!-- p.red+tab 快速创建类选择器-->
+    <p class="red"></p>
+    <!-- div#name.yellow+tab 快速创建带类的标签选择器-->
+    <div id="name" class="yellow"></div>
+
+
+
+</body>
+</html>

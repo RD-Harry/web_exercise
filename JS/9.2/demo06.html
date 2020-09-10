@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作属性</title>
+    <style>
+        .red{color: red;}
+    </style>
+</head>
+<body>
+    <div id="title" class="div1">hello hannah</div>
+    
+
+    <script>
+        var title = document.getElementById('title');
+        //获取title属性
+        console.log(title.getAttribute('class'));//div1
+
+        //原本的样式没有了，全部被替换成red
+        //理解为设置class值为red，如果需要修稿多个属性，直接再red后面添加即可
+        // title.setAttribute('class','red')
+        //要删除样式的话直接再class后面去掉相应的样式
+        title.setAttribute('class','red div1')
+
+        //日常使用时尽量用设置的方法
+        title.removeAttribute('class')//删除所有class的属性
+    </script>
+</body>
+</html>

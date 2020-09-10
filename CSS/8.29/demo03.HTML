@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器</title>
+<style>
+    
+    div{
+        color: lightcoral;
+        background-color: lightcyan;
+        /* 块元素改成行内元素 */
+        display: inline;
+        /* 过度，样式的变化再规定时间内完成 ，all表示全部样式，也可以指定样式*/
+        /* transition: color 0.5s; */
+        transition: all 0.5s;
+    }
+    /* 鼠标移入时改变样式 */
+    div:hover{font-size: 40px;
+        color: lightgoldenrodyellow;
+        background-color: lightseagreen;
+        /* 鼠标变成可点击状态 */
+        cursor: pointer;
+        
+    }
+</style>
+
+</head>
+<body>
+    <div>hello hannah</div>
+</body>
+</html>

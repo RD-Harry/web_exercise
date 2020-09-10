@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手动点击左右箭头切换图片</title>
+    <style>
+        #parent{
+            width: 739px;
+            height: 419px;
+            /* 父元素做相对定位 */
+            position: relative;
+        }
+        #parent>img{
+            /* 子元素相对定位 */
+            position: absolute;
+            /* 不设置时所有图片叠加在一起显示的是最后一张图片 */
+            /* 设置所有图片的不透明度为0 ，就是所有图片全部透明 */
+            opacity: 0;
+        }
+        /* 注意权重问题，直接写.show权重不够覆盖不了前面的，因此全都写上 */
+        #parent>img.show{
+            /* 需要显示将不透明度改成1 */
+            opacity: 1;
+        }
+
+        /* 两个小图标有一些共同的属性 */
+        #ll,#rr{
+            position: absolute;
+            /* 要调节垂直高度再祖先元素中居中 */
+            top: 50%;
+            /* 小图片高度是40px,向上微调 */
+            margin-top: -20px;
+
+
+        }
+        #rr{
+            /* 上面已经做过定位，直接写即可 */
+            /* 将小图标移到右边 */
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <!-- 给每一个图片加一个item方便找 -->
+        <img class="show item" src="img/gm1-6.jpg" alt="">
+        <img class="item" src="img/gm2-6.jpg" alt="">
+        <img class="item" src="img/gm3-6.jpg" alt="">
+        <img class="item" src="img/gm4-6.jpg" alt="">
+        <img class="item" src="img/gm5-6.jpg" alt="">
+        <div>
+            <img id="ll" src="img/l1-6.png" alt="">
+            <!-- 刚插入时，这两张图片是普通的页面元素会被之前定位过的元素覆盖掉 -->
+            <!-- 要这两个图片也显示出来需要也做定位 -->
+            <img id="rr" src="img/r1-6.png" alt="">
+        </div>
+    </div>
+    <script>
+        var items = document.getElementsByClassName('item');
+        var ll = document.getElementById('ll');
+        var rr = document.getElementById('rr');
+
+        // 找到当前图片的class show删掉，给下一个图片加上class show
+        var i =0;
+        rr.onclick=function(){
+            // 注意这里要写className，class是关键字不能直接写
+            items[i].className="item";
+            i++;//到最后一张图片时，再点击按钮会报错
+            //要对i做一个判断
+            //if(i>4)
+            if(i>items.length-1)
+            {
+                i=0;//大于四时重置i显示第一张图片
+            }
+            items[i].className='item show';
+
+        }
+        // var n =4;
+        ll.onclick=function(){
+           console.log(i)
+            items[i].className='item ';
+            i--;
+            if(i<0){
+                //i=4;//若果是第一张图片再点击左侧按钮时切换为第一张
+                i=items.length-1
+            }
+            items[i].className='item show';
+        }
+
+   
+
+
+
+
+    </script>
+</body>
+</html>

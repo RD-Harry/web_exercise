@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while循环</title>
+</head>
+<body>
+    <script>
+        var i=0;
+        while(i<110){
+            console.log(i);
+            i++;
+        }
+        var b =1;
+        do{
+            console.log(b);
+            b++;
+        }while (b <10);
+        
+        //用户重复的额输入用户名，直到输入laowang就退出
+        while (true){
+            var name= prompt('name:');
+            if (name =='laowang'){
+                    break;
+                }
+                    
+        }
+//===============================================
+        
+        do{
+            var name=prompt('名字：');
+            console.log(name)
+        }while(name!='laowang');
+    </script>
+</body>
+</html>

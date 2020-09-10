@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="d1">
+        <span>上面的文本</span>
+        <div>21312</div>
+        <p>下铺的兄弟</p>
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <!-- <script src="js/jquery.min.js"></script> -->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        console.log($('ul>li:first'));//找到第一个li
+        console.log($('ul>li:last'));//最后一个
+        console.log($('ul>li:not(li:first)'));//除了第一个以外的其他的所有的li
+        console.log($('ul>li:even'))//下标是 0 2 4偶数
+        console.log($('ul>li:odd'))//下标是1 3奇数
+
+
+        console.log($('#d1'));
+        console.log($("#d1 span"));//d1的后代元素
+        console.log($("#d1>p"));//子代元素
+        console.log($("span+p"));//span能确定span标签，+表示相邻的兄弟选择器
+        // 结果是找到的p，再span后面的第一个元素是p
+        // 如果span后面挨着的不是p就找不到p
+        // 工厂函数没找到也会返回一个jquery对象，length显示是0
+        console.log($("span~p"));//通用兄弟选择器，不挨着也能找到
+    </script>
+</body>
+</html>
