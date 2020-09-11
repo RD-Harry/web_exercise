@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        if(window.XMLHttpRequest){
+            // 如果当前窗口中有XMLHttpRequest,说明是支持的
+            // 有就创建一个XMLHttpRequest对象
+            var xhr=new XMLHttpRequest
+        }else{
+            // 如果当前窗口不支持
+            // 大部分浏览器都支持,IE特别
+            var xhr=ActiveXObject('Microsoft.XMLHTTP')
+        }
+        console.log(xhr)
+
+
+        
+    </script>
+</body>
+</html>d
