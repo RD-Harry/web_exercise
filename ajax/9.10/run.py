@@ -20,7 +20,7 @@ def get_request():
 @app.route('/post',methods=['POST'])
 def post_request():
     print(request.form)
-    uname=request.form.get('uname')
+    uname=request.form.get('name')
     return'欢迎%s'%uname
 
 
