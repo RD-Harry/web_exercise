@@ -17,10 +17,21 @@ def get_request():
     # return '数据提交成功'
     # pass
 
-@app.route('/post',methods=['POST'])
+# @app.route('/post',methods=['POST'])
+@app.route('/post')#网页要求POST接收数据,可是这里不是,网页报错
+#Method Not Allowed
+#status是405
+
+#如果是网页界面输入访问地址出错Not Found
+#status是404
 def post_request():
-    print(request.form)
-    uname=request.form.get('name')
+    # print(request.form['uname'])
+
+    #提交额数据里面是健是uname,若代码写错
+    #提示错误是KeyError: 'name'
+    #status是500,注意500一般就是服务端代码写错
+    print(request.form['name'])
+    uname=request.form.get('uname')
     return'欢迎%s'%uname
 
 
