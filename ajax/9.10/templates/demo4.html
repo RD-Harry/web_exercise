@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax_post提交数据</title>
+</head>
+<body>
+    <input id="key" type="text">
+    <button id="btn">提交</button>
+    <script>
+        var key = document.getElementById('key');
+        var btn = document.getElementById('btn');
+        btn.onclick=function()
+        {
+                // http://127.0.0.1:5000/json服务器功能的地址
+            // 提交数据也是向这里提交,POST方式提交
+
+            // ①先获取异步对象
+            // 这里没有判断,暂时忽略IE
+            var xhr = new XMLHttpRequest();
+
+            // ②建立请求
+            xhr.open('POST','http://127.0.0.1:5000/json',true);
+            xhr.onreadystatechange = function()
+            {
+                if(xhr.readyState==4 && xhr.status == 200)
+                {
+                    console.log(xhr.responseText)
+                }
+            }
+
+            // json数据格式,key.value是页面元素文本框key的值
+            // var data={"key":key.value};
+            // 设置请求头,在设置之前headers文件里面看到
+            // Content-Type: text/plain;charset=UTF-8
+
+            // 改成form表单post提交的格式
+            // xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+
+
+            data =JSON.stringify({"key":key.value})
+            // 通过JSON.stringify将数据转化成字符串
+            xhr.setRequestHeader('Content-Type','application/json')
+            xhr.send(data);
+
+            //  # ②ajax服务接收数据
+            // #key = request.json.get('key')
+        }
+        
+    </script>
+</body>
+</html>

@@ -17,8 +17,8 @@ def get_request():
     # return '数据提交成功'
     # pass
 
-# @app.route('/post',methods=['POST'])
-@app.route('/post')#网页要求POST接收数据,可是这里不是,网页报错
+@app.route('/post',methods=['POST'])
+# @app.route('/post')#网页要求POST接收数据,可是这里不是,网页报错
 #Method Not Allowed
 #status是405
 
@@ -30,7 +30,7 @@ def post_request():
     #提交额数据里面是健是uname,若代码写错
     #提示错误是KeyError: 'name'
     #status是500,注意500一般就是服务端代码写错
-    print(request.form['name'])
+    print(request.form['uname'])
     uname=request.form.get('uname')
     return'欢迎%s'%uname
 
@@ -45,6 +45,26 @@ def view_login():
         return render_template('demo2.html')
     elif request.method=='POST':
         return '获取数据成功'
+
+# 定义服务器端功能,然后前端使用
+@app.route('/json',methods=["GET","POST"])
+# 通过post提交的格式是json格式,允许接收get和POST请求
+def json_view():
+    if request.method=='GET':
+        return render_template('demo4.html')
+    elif request.method=='POST':
+        # id 为key是用户再界面输入的内容
+
+        # ①表单form提交
+        # key = request.form.get('key')
+
+        # 浏览器端已经通过JSON.stringify将数据转成字符串,
+        # 这里需要对应的方式接收数据
+        # ②ajax服务接收数据
+        key = request.json.get('key')
+
+        return '拿到数据%s'%key
+
 
 
 

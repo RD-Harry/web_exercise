@@ -10,7 +10,7 @@
         if(window.XMLHttpRequest){
             // 如果当前窗口中有XMLHttpRequest,说明是支持的
             // 有就创建一个XMLHttpRequest对象
-            var xhr=new XMLHttpRequest
+            var xhr=new XMLHttpRequest ()
         }else{
             // 如果当前窗口不支持
             // 大部分浏览器都支持,IE特别
@@ -18,8 +18,29 @@
         }
         console.log(xhr)
 
+        // ①创建本次要发送的请求
 
-        
+        xhr.open('get','http://127.0.0.1:5000/demo')
+        // 将数据给到服务器端demo功能
+
+        // ②绑定事件----xhr触发的异步事件
+        xhr.onreadystatechange=function(){
+            // 当这两种情况都满足时
+            if (xhr.readyState==4 && xhr.status ==200){
+                // 通过responseText获取响应的结果,就是服务器端返回的值
+                // return 'get方式获取数据成功'
+                console.log(xhr.responseText)
+                // 实际上每一次responseText每一次都有返回的值的并不是每一次的值都要意义
+                // 只有状态都正常,接收到的值才是有意义的,
+                // 所以做判断再状态值为4,状态码为200时才获取
+
+            }
+
+        }
+        // ③get方式不需要发送内容
+        // 若真有数据发送,get发送数据方式是查询字符串,以键和值拼接的方式
+        // ? & 键=值把内容写在地址上
+        xhr.send()
     </script>
 </body>
-</html>d
+</html>
